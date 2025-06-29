@@ -1,103 +1,183 @@
+"use client"
+import NavLink from "@/app/components/ui/NavLink";
+import {useState} from "react";
 import Image from "next/image";
+import SplitText from "@/app/components/ui/SplitText";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    const [showNew, setShowNew] = useState<boolean>(false);
+    const [showConfirm, setShowConfirm] = useState<boolean>(false);
+    const [isSignUp, setIsSignUp] = useState(true);
+
+
+    const handleAnimationComplete = () => {
+        console.log('All letters have animated!');
+    };
+
+  return (
+      <div className={`w-full h-screen bg-white flex items-center justify-center font-mono`}>
+          <div className={`w-1/2 h-full bg-[url('/images/checkered_bg.jpg')] bg-cover text-white flex flex-col items-center  justify-center`}>
+              <SplitText
+                  text="Kolox_Hub"
+                  className="font-semibold text-center mb-4"
+                  delay={100}
+                  duration={0.6}
+                  ease="power3.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 40 }}
+                  to={{ opacity: 1, y: 0 }}
+                  threshold={0.1}
+                  rootMargin="-100px"
+                  textAlign="center"
+                  onLetterAnimationComplete={handleAnimationComplete}
+              />
+            <figure className={`flex flex-col items-center justify-center w-full flex-wrap mb-8`}>
+                <Image width={150} height={150} src={"/images/logoavif.avif"} alt={""} className={`mb-4`}></Image>
+                <figcaption>
+                    Print|Brand|Design|Advert
+                </figcaption>
+            </figure>
+            <div className={`w-full flex flex-col items-center justify-center gap-4`}>
+                <p>Lorem ipsum dolor sirepellat tenetur veniam, veritatis vitae voluptatem.</p>
+                <p>Lorem ipsum dolor sirepellat tenetur veniam, veritatis vitae voluptatem.</p>
+                <p>Lorem ipsum dolor sirepellat tenetur veniam, veritatis vitae voluptatem.</p>
+            </div>
+
+              <p className={`bottom-0`}>copyright &copy;KoloxHub 2025</p>
+          </div>
+
+          <div className={`w-2/3 h-full rounded-lg bg-white p-8`}>
+              <h1 className="text-2xl font-medium mb-8">
+                  <button
+                      onClick={() => setIsSignUp(false)}
+                      className={`px-2 ${!isSignUp ? "text-pink-700 underline" : "text-gray-500"}`}
+                  >
+                      SIGN IN
+                  </button>
+                  &nbsp;/&nbsp;
+                  <button
+                      onClick={() => setIsSignUp(true)}
+                      className={`px-2 ${isSignUp ? "text-pink-700 underline" : "text-gray-500"}`}
+                  >
+                      SIGN UP
+                  </button>
+              </h1>
+
+              {isSignUp ? (
+                  <form className="w-full h-8/12 flex flex-col justify-start">
+                      <label htmlFor="username" className="text-lg text-pink-700">Username</label>
+                      <input
+                          type="text"
+                          id="username"
+                          placeholder="Enter your preferred username"
+                          className="w-1/2 drop-shadow-xl border-2 border-gray-300 rounded-md p-1 focus:outline-pink-700 caret-pink-700 mb-4"
+                          required
+                      />
+
+                      <label htmlFor="email" className="text-lg text-pink-700">Email</label>
+                      <input
+                          type="email"
+                          id="email"
+                          placeholder="Enter your email address"
+                          className="w-1/2 drop-shadow-xl border-2 border-gray-300 rounded-md p-1 focus:outline-pink-700 caret-pink-700 mb-4"
+                          required
+                      />
+
+                      <label htmlFor="phone" className="text-lg text-pink-700">Phone Number</label>
+                      <input
+                          type="tel"
+                          id="phone"
+                          placeholder="Enter your phone number"
+                          className="w-1/2 drop-shadow-xl border-2 border-gray-300 rounded-md p-1 focus:outline-pink-700 caret-pink-700 mb-4"
+                          required
+                      />
+
+                      <label htmlFor="password_new" className="text-lg text-pink-700">Create Password</label>
+                      <div className="relative w-1/2 mb-4">
+                          <input
+                              type={showNew ? "text" : "password"}
+                              id="password_new"
+                              placeholder="Enter your new password"
+                              className="w-full drop-shadow-xl border-2 border-gray-300 rounded-md p-1 focus:outline-pink-700 caret-pink-700 pr-10"
+                              required
+                          />
+                          <button
+                              type="button"
+                              onClick={() => setShowNew(!showNew)}
+                              className="absolute right-2 top-1 text-pink-700"
+                          >
+                              {showNew ? <img className="w-5 h-5" src={"/icons/hide.png"} alt={""} /> : <img
+                                  className="w-5 h-5" src={"/icons/view.png"} alt={""} />}
+                          </button>
+                      </div>
+
+                      <label htmlFor="password_confirm" className="text-lg text-pink-700">Confirm Password</label>
+                      <div className="relative w-1/2 mb-4">
+                          <input
+                              type={showConfirm ? "text" : "password"}
+                              id="password_confirm"
+                              placeholder="Enter your password again"
+                              className="w-full drop-shadow-xl border-2 border-gray-300 rounded-md p-1 focus:outline-pink-700 caret-pink-700 pr-10"
+                              required
+                          />
+
+                          <button
+                              type="button"
+                              onClick={() => setShowConfirm(!showConfirm)}
+                              className="absolute right-2 top-1 text-pink-700"
+                          >
+                              {showConfirm ? <img className="w-5 h-5" src={"/icons/hide.png"} alt={""} /> : <img className="w-5 h-5" src={"/icons/view.png"} alt={""} />}
+                          </button>
+                      </div>
+
+                      <p className="flex justify-start items-center">
+                          <input type="checkbox" className="mr-2 accent-pink-700 w-5 h-5" />
+                          Keep me logged in.
+                      </p>
+                      <p className="mb-4 text-pink-700">
+                          Do not check this if your are using a shared or public computer.
+                      </p>
+
+                      <button className="text-center border-2 bg-pink-600 text-white text-lg p-1 rounded-md mb-2">Register Now</button>
+                      <button className="text-center border-2 bg-white text-pink-600 text-lg rounded-md mb-2">SignUp With Google</button>
+                      <p className="text-center">
+                          Already have an account?
+                          <span className="text-pink-700 ml-1 cursor-pointer">SignIn Here</span>
+                      </p>
+                  </form>
+              ) : (
+                  <form className="w-full flex flex-col justify-start">
+                      <label htmlFor="username" className="text-lg text-pink-700">Username</label>
+                      <input
+                          type="text"
+                          id="username"
+                          placeholder="Enter your username"
+                          className="w-1/2 drop-shadow-xl border-2 border-gray-300 rounded-md p-1 mb-4"
+                          required
+                      />
+
+                      <label htmlFor="password" className="text-lg text-pink-700">Password</label>
+                      <input
+                          type="password"
+                          id="password"
+                          placeholder="Enter your password"
+                          className="w-1/2 drop-shadow-xl border-2 border-gray-300 rounded-md p-1 mb-4"
+                          required
+                      />
+
+                      <p className="flex justify-start items-center">
+                          <input type="checkbox" className="mr-2 accent-pink-700 w-5 h-5" />
+                          Keep me logged in.
+                      </p>
+
+                      <button className="text-center border-2 bg-pink-600 text-white text-lg p-1 rounded-md mt-4">
+                          Sign In
+                      </button>
+                  </form>
+              )}
+
+          </div>
+      </div>
+  )
 }
